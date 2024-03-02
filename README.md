@@ -1,2 +1,2 @@
 # pythonfirstproject
-These are my first python projects/lessons. 
+These are my first python projects/lessons.
