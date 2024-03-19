@@ -1,0 +1,4 @@
+x = "Ahmet"
+print(x)
+input int()
+
