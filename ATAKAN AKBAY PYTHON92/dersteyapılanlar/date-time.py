@@ -22,4 +22,9 @@ b = int(b) + random.randint(-2,9)
 c = datetime.datetime.now().strftime("%d")
 c = int(c) + random.randint(-22,7)
 
-print(c,b,a)
+#print(c,b,a)
+
+
+# Bekle
+import time
+print ("Bekledim.", time.sleep(3))
