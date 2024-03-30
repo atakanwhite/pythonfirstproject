@@ -1,4 +1,3 @@
-def libmenu :
 print("╔════════╔════════════════╗════════╗")
 print("║════════╚LIBRARY ARCHIVES╝════════║")
 print("║         1-  Famous Books         ║ ")
