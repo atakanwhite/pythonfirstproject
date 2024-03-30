@@ -51,13 +51,15 @@ ogrenci ={
     "Numarasi" : no
 }
 dosya = open("dosyalar/rehber1.txt","a")
-dosya.write(f"{str(ogrenci)}\n")
+dosya.write(f"{str(ogrenci)},\n")
 dosya.close()
 
+import ast
 okunan = open("dosyalar/rehber1.txt")
 bb = okunan.readlines()
-aa = bb
-for a in aa:
-    print(a)
+cevirilen = ast.literal_eval(okunan)
+for a in cevirilen:
+    print("=>",a)
+    #print(a[:])
 
 okunan.close()

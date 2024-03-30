@@ -1,2 +1,2 @@
-{'Adi': 'dadadadsa', 'Numarası': '56519924'}
-{'Adi': 'Atakan', 'Numarası': '08526538598'}
+{'Adi': 'dadadadsa', 'Numarasï¿½': '56519924'},
+{'Adi': 'Atakan', 'Numarasï¿½': '08526538598'},
