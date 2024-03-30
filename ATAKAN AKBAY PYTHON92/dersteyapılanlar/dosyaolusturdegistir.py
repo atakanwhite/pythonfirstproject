@@ -48,7 +48,7 @@ ad = input("Kaydedilecek kişi adı:               ")
 no= input("Kaydedilecek kişi numarası:           ")
 ogrenci ={
     "Adi" : ad,
-    "Numarası" : no
+    "Numarasi" : no
 }
 dosya = open("dosyalar/rehber1.txt","a")
 dosya.write(f"{str(ogrenci)}\n")
