@@ -2,3 +2,4 @@
 {'Adi': 'Atakan', 'Numarasï¿½': '08526538598'},
 {'Adi': '& "C:/Program Files/Python310/python.exe" "c:/Users/vektorel/pythonfirstproject/ATAKAN AKBAY PYTHON92/dersteyapýlanlar/dosyaolusturdegistir.py"', 'Numarasi': '& "C:/Program Files/Python310/python.exe" "c:/Users/vektorel/pythonfirstproject/ATAKAN AKBAY PYTHON92/dersteyapýlanlar/dosyaolusturdegistir.py"'},
 {'Adi': 'Mehmet', 'Numarasi': '066312414124'},
+{'Adi': 'Ahmed Musa', 'Numarasi': '054593934959'},
