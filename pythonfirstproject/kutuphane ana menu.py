@@ -46,3 +46,4 @@ anamenu()
 # 200 ╚
 # 188 ╝
 #https://drive.google.com/drive/folders/1fzxnG68VzCvC4HIsVslMmQc7IHDtXt3c
+#KODLAR
