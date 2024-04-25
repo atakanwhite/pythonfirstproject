@@ -1,0 +1,1 @@
+{'name': '& C:/Users/tr/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/tr/pythonfirstproject-1/ATAKAN AKBAY PYTHON92/rehbersistemi.py"', 'num': '& C:/Users/tr/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/tr/pythonfirstproject-1/ATAKAN AKBAY PYTHON92/rehbersistemi.py"'},
