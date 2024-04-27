@@ -94,3 +94,5 @@ def sil():
             if a["adi"]!=aranan:
                 dosya.write(f"{str(a)},")
 menu()
+
+#exe ile açılan şekli
