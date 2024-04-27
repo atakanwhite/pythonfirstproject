@@ -35,19 +35,68 @@
 # # Uygulamayı çalıştırma
 # app.exec()
 
-import sys
+
+# ÖRNEK 5
+# import sys
+# from PyQt5.QtWidgets import *
+# app = QApplication(sys.argv)
+# pencere = QWidget()
+# pencere.setWindowTitle("MERİT ROYAL DENEME BONUSU ALMAK İÇİN ŞİMDİ KATIL")
+# window = QPushButton("BONUSU ALMAK İÇİN TIKLA")
+# window.show()
+# pencere.setFixedSize(300,300)
+# pencere.show()
+#app.exec()
+
+
+# ÖRNEK 6
+# from PyQt5.QtWidgets import *
+# aa = QApplication([])
+# ww = QWidget() #pencere
+# icerik = QVBoxLayout()
+
+# def icerikolustur(xx):
+#     xx.addWidget(QPushButton("TIKLA"))
+#     xx.addWidget(QPushButton("BONUSUNU AL"))
+#     xx.addWidget(QLabel("Bilgi"))
+
+# icerik = QVBoxLayout()
+# icerikolustur(icerik)
+# ww.setLayout(icerik)
+
+# icerik2 = QVBoxLayout()
+# icerikolustur(icerik2)
+# ww.setLayout(icerik2)
+
+
+# ww.show()
+# aa.exec()
+
+
+
 from PyQt5.QtWidgets import *
-app = QApplication(sys.argv)
-pencere = QWidget()
-pencere.setWindowTitle("MERİT ROYAL DENEME BONUSU ALMAK İÇİN ŞİMDİ KATIL")
-window = QPushButton("BONUSU ALMAK İÇİN TIKLA")
-window.show()
-pencere.setFixedSize(300,300)
-pencere.show()
+aa = QApplication([])
+ww = QWidget()
+ww1 = QWidget() #pencereler ww olanlar
 
+def icerikolustur(xx):
+    xx.addWidget(QLabel("Kullanıcı Adı:"))
+    xx.addWidget(QLineEdit("Kullanıcı adınızı buraya girin."))
+    xx.addWidget(QLabel("Şifre:"))
+    xx.addWidget(QLineEdit())
+    xx.addWidget(QPushButton("Giriş Yap"))
 
+icerik = QVBoxLayout()
+icerikolustur(icerik)
+ww.setLayout(icerik)
+ww.show()
 
-app.exec()
+icerik2 = QHBoxLayout()
+icerikolustur(icerik2)
+ww1.setLayout(icerik2)
+ww1.show()
+
+aa.exec()
 
 
 
