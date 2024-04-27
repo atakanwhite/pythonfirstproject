@@ -40,6 +40,8 @@ from PyQt5.QtWidgets import *
 app = QApplication(sys.argv)
 pencere = QWidget()
 pencere.setWindowTitle("MERİT ROYAL DENEME BONUSU ALMAK İÇİN ŞİMDİ KATIL")
+window = QPushButton("BONUSU ALMAK İÇİN TIKLA")
+window.show()
 pencere.setFixedSize(300,300)
 pencere.show()
 
