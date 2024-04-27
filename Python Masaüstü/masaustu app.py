@@ -73,30 +73,56 @@
 # aa.exec()
 
 
+#ÖRNEK 7
+# from PyQt5.QtWidgets import *
+# aa = QApplication([])
+# ww = QWidget()
+# ww1 = QWidget() #pencereler ww olanlar
 
-from PyQt5.QtWidgets import *
-aa = QApplication([])
-ww = QWidget()
-ww1 = QWidget() #pencereler ww olanlar
+# def icerikolustur(xx):
+#     xx.addWidget(QLabel("Kullanıcı Adı:"))
+#     xx.addWidget(QLineEdit("Kullanıcı adınızı buraya girin."))
+#     xx.addWidget(QLabel("Şifre:"))
+#     xx.addWidget(QLineEdit())
+#     xx.addWidget(QPushButton("Giriş Yap"))
 
-def icerikolustur(xx):
-    xx.addWidget(QLabel("Kullanıcı Adı:"))
-    xx.addWidget(QLineEdit("Kullanıcı adınızı buraya girin."))
-    xx.addWidget(QLabel("Şifre:"))
-    xx.addWidget(QLineEdit())
-    xx.addWidget(QPushButton("Giriş Yap"))
+# icerik = QVBoxLayout()
+# icerikolustur(icerik)
+# ww.setLayout(icerik)
+# ww.show()
 
-icerik = QVBoxLayout()
-icerikolustur(icerik)
-ww.setLayout(icerik)
-ww.show()
+# icerik2 = QHBoxLayout()
+# icerikolustur(icerik2)
+# ww1.setLayout(icerik2)
+# ww1.show()
 
-icerik2 = QHBoxLayout()
-icerikolustur(icerik2)
-ww1.setLayout(icerik2)
-ww1.show()
+# aa.exec()
 
-aa.exec()
+
+#ÖRNEK 8
+
+# from PyQt6.QtWidgets import *
+
+# class loginPenceresi(QMainWindow):
+# def __init__(self,xx="Başlıksız"):
+# super().__init__()
+# self.setWindowTitle(xx)
+
+# icerik = QVBoxLayout()
+# icerik.addWidget(QLabel('Kullanıcı adı:'))
+# icerik.addWidget(QLineEdit('Kullanıcı adınız...'))
+# icerik.addWidget(QLabel('Şifre:'))
+# icerik.addWidget(QLineEdit())
+# icerik.addWidget(QPushButton('Giriş yap'))
+
+# araclar = QWidget()
+# araclar.setLayout(icerik)
+# self.setCentralWidget(araclar)
+
+# uygulama = QApplication([])
+# pencere = loginPenceresi("Giriş")
+# pencere.show()
+# uygulama.exec()
 
 
 
