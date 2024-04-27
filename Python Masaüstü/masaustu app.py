@@ -35,5 +35,18 @@
 # # Uygulamayı çalıştırma
 # app.exec()
 
+import sys
+from PyQt5.QtWidgets import *
+app = QApplication(sys.argv)
+pencere = QWidget()
+pencere.setWindowTitle("MERİT ROYAL DENEME BONUSU ALMAK İÇİN ŞİMDİ KATIL")
+pencere.setFixedSize(300,300)
+pencere.show()
+
+
+
+app.exec()
+
+
 
 #ÖRNEKLER PYQT SLAYTINDAN ALINMIŞ VE YAPILMIŞTIR.
