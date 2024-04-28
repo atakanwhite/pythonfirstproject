@@ -199,7 +199,11 @@ class loginPenceresi(QMainWindow):
   def kontrolEt(self):
         print("Düğmeye tıklandı..")
         t1 = self.edit1.text()
+        t2 = self.edit2.text()
         print("Edit 1 içeriği:", t1)
+        dosya = open("rehbergirilenpwd.txt","w")
+        dosya.write(f"{t1} {t2}")
+        dosya.close()
 
 uygulama = QApplication([])
 pencere = loginPenceresi("Giriş")
