@@ -67,6 +67,8 @@ class loginPenceresi(QMainWindow):
     if t1=="Atakan" and t2 == "123456" :
       print("Giriş ok")
       self.close()
+      self.ap = anaEkran()
+      self.ap.show()
     else:
       print("İzin yok")
       dlg = QMessageBox(self)
@@ -77,7 +79,5 @@ class loginPenceresi(QMainWindow):
 sifreOlustur()
 uygulama = QApplication([])
 pencere = loginPenceresi("Giriş1")
-anaPencere = anaEkran("MENU")
 pencere.show()
-anaPencere.show()
 uygulama.exec() 
