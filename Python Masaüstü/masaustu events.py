@@ -13,7 +13,6 @@ class anaEkran(QMainWindow):
   def __init__(self,xx="Başlıksız"):
     super().__init__()
     self.setWindowTitle(xx)
-
     icerik = QVBoxLayout()
     self.dugme1 = QPushButton('Ekle')
     icerik.addWidget(self.dugme1)
