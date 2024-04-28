@@ -170,9 +170,13 @@
 
 from PyQt6.QtWidgets import *
 
-dosya = open("rehberpwd.txt","w")
-dosya.write("adm 123")
-dosya.close
+
+def sifreolustur():
+    kullaniciAdi = "adm"
+    sifre = "123"
+    dosya = open("rehberpwd.txt","w")
+    dosya.write("f{kullaniciAdi}{sifre}")
+    dosya.close
 
 
 class loginPenceresi(QMainWindow):
@@ -205,6 +209,8 @@ class loginPenceresi(QMainWindow):
         dosya.write(f"{t1} {t2}")
         dosya.close()
 
+
+sifreolustur()
 uygulama = QApplication([])
 pencere = loginPenceresi("Giriş")
 pencere.show()
