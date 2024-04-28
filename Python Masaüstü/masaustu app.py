@@ -124,6 +124,86 @@
 # pencere.show()
 # uygulama.exec()
 
+#ÖRNEK 8 
+# Buton ekleyelim
+# from PyQt5.QtWidgets import *
+# aa = QApplication([])
+# ww = QWidget() # pencere
+# ww1 = QWidget() # pencere
 
+# def icerikOlustur(xx):
+#     xx.addWidget(QLabel('Kullanıcı adı:'))
+#     xx.addWidget(QLineEdit('Kullanıcı adınız...'))
+#     xx.addWidget(QLabel('Şifre:'))
+#     xx.addWidget(QLineEdit())
+#     xx.addWidget(QPushButton('Giriş yap'))
+
+# icerik = QVBoxLayout()
+# icerikOlustur(icerik)
+# ww.setLayout(icerik)
+# ww.show()
+
+# icerik2 = QHBoxLayout()
+# icerikOlustur(icerik2)
+# ww1.setLayout(icerik2)
+# ww1.show()
+
+# aa.exec()
+
+
+# # Tıklama algılama
+# from PyQt6.QtWidgets import *
+
+# app = QApplication([])
+# button = QPushButton('Click')
+
+# def on_button_clicked():
+#     alert = QMessageBox()
+#     alert.setText('Tıkladın!')
+#     alert.exec()
+
+# button.clicked.connect(on_button_clicked)
+# button.show()
+# app.exec()
+
+#ÖRNEK 9 
+
+from PyQt6.QtWidgets import *
+
+dosya = open("rehberpwd.txt","w")
+dosya.write("adm 123")
+dosya.close
+
+
+class loginPenceresi(QMainWindow):
+  def __init__(self,xx="Başlıksız"):
+    super().__init__()
+    self.setWindowTitle(xx)
+
+    icerik = QVBoxLayout()
+    icerik.addWidget(QLabel('Kullanıcı adı:'))
+    self.edit1 = QLineEdit('Kullanıcı adınız...')
+    icerik.addWidget(self.edit1)
+    icerik.addWidget(QLabel('Şifre:'))
+    self.edit2 = QLineEdit()
+    icerik.addWidget(self.edit2)
+    self.dugme1 = QPushButton('Giriş yap')
+    icerik.addWidget(self.dugme1)
+
+    self.dugme1.clicked.connect(self.kontrolEt)
+
+    araclar = QWidget()
+    araclar.setLayout(icerik)
+    self.setCentralWidget(araclar)
+
+  def kontrolEt(self):
+        print("Düğmeye tıklandı..")
+        t1 = self.edit1.text()
+        print("Edit 1 içeriği:", t1)
+
+uygulama = QApplication([])
+pencere = loginPenceresi("Giriş")
+pencere.show()
+uygulama.exec() 
 
 #ÖRNEKLER ERDINC DONMEZ PYQT SLAYTINDAN ALINMIŞ VE YAPILMIŞTIR.
