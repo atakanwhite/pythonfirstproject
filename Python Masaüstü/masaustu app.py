@@ -204,10 +204,19 @@ class loginPenceresi(QMainWindow):
         print("Düğmeye tıklandı..")
         t1 = self.edit1.text()
         t2 = self.edit2.text()
-        print("Edit 1 içeriği:", t1)
+        print("Kullanıcı Adı:", t1)
+        print("Şifre:", t2)
         dosya = open("rehbergirilenpwd.txt","w")
         dosya.write(f"{t1} {t2}")
         dosya.close()
+
+
+        if t1 == "adm" and t2 == "11" :
+            print("Giriş yapıldı.")
+            dlg = QMessageBox(self)
+            
+        else:
+            print("İzin yok.")
 
 
 sifreolustur()
