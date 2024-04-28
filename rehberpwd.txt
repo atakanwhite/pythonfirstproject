@@ -1,1 +1,1 @@
-f{kullaniciAdi}{sifre}f{kullaniciAdi}{sifre}
+f{kullaniciAdi}{sifre}
