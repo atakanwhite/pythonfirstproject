@@ -8,20 +8,20 @@ def sifreOlustur():
   dosya.close()
 
 class anaEkran(QMainWindow):
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
 
     icerik = QVBoxLayout()
-    self.dugme1 = QPushButton('Ekle')
+    self.dugme1 = QPushButton('Add')
     icerik.addWidget(self.dugme1)
-    self.dugme2 = QPushButton('Listele')
+    self.dugme2 = QPushButton('List')
     icerik.addWidget(self.dugme2)
-    self.dugme3 = QPushButton('Ara')
+    self.dugme3 = QPushButton('Search')
     icerik.addWidget(self.dugme3)
-    self.dugme4 = QPushButton('Sil')
+    self.dugme4 = QPushButton('Delete')
     icerik.addWidget(self.dugme4)
-    self.dugme5 = QPushButton('Düzelt')
+    self.dugme5 = QPushButton('Edit')
     icerik.addWidget(self.dugme5)
 
     self.dugme1.clicked.connect(self.ekle)
@@ -36,46 +36,46 @@ class anaEkran(QMainWindow):
 
   def ekle(self):
     self.close()
-    self.ekleme = EkleEkrani('Kayıt Ekleme')
+    self.ekleme = EkleEkrani('Add Menu')
     self.ekleme.show()
 
   def listele(self):
     self.close()
-    self.listeleme = VeriListeEkrani('Kayıt Ekleme')
+    self.listeleme = VeriListeEkrani('List Menu')
     self.listeleme.show()
 
   def ara(self):
     self.close()
-    self.arama = AramaEkrani('Kayıt Arama')
+    self.arama = AramaEkrani('Search Menu')
     self.arama.show()
 
   def sil(self):
     self.close()
-    self.silme = SilmeEkrani('Kayıt Silme')
+    self.silme = SilmeEkrani('Delete Menu')
     self.silme.show()
 
   def duzelt(self):
     self.close()
-    self.duzeltme = DuzeltmeEkrani('Kayıt Düzeltme')
+    self.duzeltme = DuzeltmeEkrani('Edit Menu')
     self.duzeltme.show()
 
 
 
 class loginPenceresi(QMainWindow):
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
 
     icerik = QVBoxLayout()
-    icerik.addWidget(QLabel('Kullanıcı adı:'))
-    self.edit1 = QLineEdit('Kullanıcı adınız...')
+    icerik.addWidget(QLabel('Usernamee:'))
+    self.edit1 = QLineEdit('Enter username')
     # self.edit1.width(50)
     icerik.addWidget(self.edit1)
-    icerik.addWidget(QLabel('Şifre:'))
+    icerik.addWidget(QLabel('Password:'))
     self.edit2 = QLineEdit()
     self.edit2.setEchoMode(QLineEdit.EchoMode.Password)
     icerik.addWidget(self.edit2)
-    self.dugme1 = QPushButton('Giriş yap')
+    self.dugme1 = QPushButton('Log In')
     icerik.addWidget(self.dugme1)
 
     self.dugme1.clicked.connect(self.kontrolEt)
@@ -85,41 +85,41 @@ class loginPenceresi(QMainWindow):
     self.setCentralWidget(araclar)
 
   def kontrolEt(self):
-    print("Düğmeye tıklandı..")
+    print("Button clicked!")
     t1 = self.edit1.text()
     t2 = self.edit2.text()
-    print("Edit 1 içeriği:", t1)
-    print("Edit 2 içeriği:", t2)
+    print("Edit 1 :", t1)
+    print("Edit 2 :", t2)
     dosya = open("rhbgirilenpwd.txt","w")
     dosya.write(f"{t1} {t2}")
     dosya.close()
 
     if t1=="q" and t2 == "q" :
-      print("Giriş ok")
+      print("Access denied.")
       self.close()
       self.ap = anaEkran()
       self.ap.show()
     else:
-      print("İzin yok")
+      print("No permission for the action.")
       dlg = QMessageBox(self)
-      dlg.setWindowTitle("Bilgilendirme!")
-      dlg.setText("İzin yok")
+      dlg.setWindowTitle("IMPORTANT!")
+      dlg.setText("No permission for the action.")
       dlg.exec()
 
 class EkleEkrani(QMainWindow):
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
 
     icerik = QVBoxLayout()
-    icerik.addWidget(QLabel('Ad soyad:'))
+    icerik.addWidget(QLabel('Name/Surname:'))
     self.edit1 = QLineEdit('')
     # self.edit1.width(50)
     icerik.addWidget(self.edit1)
-    icerik.addWidget(QLabel('Numara'))
+    icerik.addWidget(QLabel('Number'))
     self.edit2 = QLineEdit()
     icerik.addWidget(self.edit2)
-    self.dugme1 = QPushButton('Kaydet')
+    self.dugme1 = QPushButton('Save')
     icerik.addWidget(self.dugme1)
 
     self.dugme1.clicked.connect(self.kaydet)
@@ -131,8 +131,8 @@ class EkleEkrani(QMainWindow):
   def kaydet(self):
     t1 = self.edit1.text()
     t2 = self.edit2.text()
-    print("Edit 1 içeriği:", t1)
-    print("Edit 2 içeriği:", t2)
+    print("Edit 1 :", t1)
+    print("Edit 2 :", t2)
     
     import sqlite3
     vt = sqlite3.connect('rehber.db')
@@ -159,8 +159,8 @@ class VeriListeEkrani(QMainWindow):
     # icerik = QVBoxLayout()
     icerik = QGridLayout()
     x = 1
-    icerik.addWidget(QLabel('Adı'),0,1)
-    icerik.addWidget(QLabel('Numarası'),0,2)
+    icerik.addWidget(QLabel('Name:'),0,1)
+    icerik.addWidget(QLabel('Number:'),0,2)
     for a in liste: 
         print (a[1],a[2])
         icerik.addWidget(QLabel(a[1]),x,1) # gridLayout taki x.satır ve 1.sütuna QLable yerleştir.
@@ -168,7 +168,7 @@ class VeriListeEkrani(QMainWindow):
         x+=1
 
     # icerik.setColumnStretch(0, 2) # buna benzer bir şey ile hücre birleştirmesi yapılabilir.
-    self.d1 = QPushButton('Ana ekrana dön')
+    self.d1 = QPushButton('Return to main page')
     icerik.addWidget(self.d1,x,1) # x.satır ve 1.sütuna self.d1 widgetini yerleştir.
     self.d1.clicked.connect(self.anaEkranaDon)
 
@@ -179,16 +179,16 @@ class VeriListeEkrani(QMainWindow):
 
   def anaEkranaDon(self):
     self.close() # mevcut pencereyi kapa
-    self.ae = anaEkran('Ana ekran') # anaekran isimli pencere tanımla
+    self.ae = anaEkran('Main Page') # anaekran isimli pencere tanımla
     self.ae.show() # anaekran ı göster.
 
 class AramaEkrani(QMainWindow):
   def anaEkranaDon(self):
     self.close() # mevcut pencereyi kapa
-    self.ae = anaEkran('Ana ekran') # anaekran isimli pencere tanımla
+    self.ae = anaEkran('Main Page') # anaekran isimli pencere tanımla
     self.ae.show() # anaekran ı göster.
 
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
    
@@ -200,16 +200,16 @@ class AramaEkrani(QMainWindow):
     self.icerik.addWidget(getirB,1,0)
     self.bulunanlar = []
     getirB.clicked.connect(self.getir)
-    print("bulunanlar:",self.bulunanlar)
+    print("found:",self.bulunanlar)
     self.icerik.addWidget(QLabel('Id'),0,1)
-    self.icerik.addWidget(QLabel('Adı'),0,2)
-    self.icerik.addWidget(QLabel('Numarası'),0,3)
+    self.icerik.addWidget(QLabel('Name'),0,2)
+    self.icerik.addWidget(QLabel('Number'),0,3)
     # adL = QLabel('...')
     # nuL = QLabel('...')
 
  
     # self.icerik.setColumnStretch(0, 2) # buna benzer bir şey ile hücre birleştirmesi yapılabilir.
-    self.d1 = QPushButton('Ana ekrana dön')
+    self.d1 = QPushButton('Return to main page')
     self.icerik.addWidget(self.d1,3,1) # x.satır ve 1.sütuna self.d1 widgetini yerleştir.
     self.d1.clicked.connect(self.anaEkranaDon)
 
@@ -239,7 +239,7 @@ class SilmeEkrani(QMainWindow):
     self.ae = anaEkran('Ana ekran') # anaekran isimli pencere tanımla
     self.ae.show() # anaekran ı göster.
 
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
    
@@ -253,20 +253,20 @@ class SilmeEkrani(QMainWindow):
     getirB.clicked.connect(self.getir)
     print("bulunanlar:",self.bulunanlar)
     self.icerik.addWidget(QLabel('Id'),0,1)
-    self.icerik.addWidget(QLabel('Adı'),0,2)
-    self.icerik.addWidget(QLabel('Numarası'),0,3)
+    self.icerik.addWidget(QLabel('Name'),0,2)
+    self.icerik.addWidget(QLabel('Number'),0,3)
     # adL = QLabel('...')
     # nuL = QLabel('...')
 
     self.silinecekId = QLineEdit()
     self.icerik.addWidget(self.silinecekId,3,0)
-    self.silB = QPushButton('Sil')
+    self.silB = QPushButton('Delete')
     self.icerik.addWidget(self.silB,4,0)
     self.silB.clicked.connect(self.sil)
 
  
     # self.icerik.setColumnStretch(0, 2) # buna benzer bir şey ile hücre birleştirmesi yapılabilir.
-    self.d1 = QPushButton('Ana ekrana dön')
+    self.d1 = QPushButton('Return to main page')
     self.icerik.addWidget(self.d1,5,0) # x.satır ve 1.sütuna self.d1 widgetini yerleştir.
     self.d1.clicked.connect(self.anaEkranaDon)
 
@@ -307,10 +307,10 @@ class SilmeEkrani(QMainWindow):
 class DuzeltmeEkrani(QMainWindow):
   def anaEkranaDon(self):
     self.close() # mevcut pencereyi kapa
-    self.ae = anaEkran('Ana ekran') # anaekran isimli pencere tanımla
+    self.ae = anaEkran('Main Page') # anaekran isimli pencere tanımla
     self.ae.show() # anaekran ı göster.
 
-  def __init__(self,xx="Başlıksız"):
+  def __init__(self,xx="Unnamed"):
     super().__init__()
     self.setWindowTitle(xx)
    
@@ -324,21 +324,21 @@ class DuzeltmeEkrani(QMainWindow):
     getirB.clicked.connect(self.getir)
     # print("bulunanlar:",self.bulunanlar)
     self.icerik.addWidget(QLabel('Id'),0,1)
-    self.icerik.addWidget(QLabel('Adı'),0,2)
-    self.icerik.addWidget(QLabel('Numarası'),0,3)
-    self.duzelecekId = QLineEdit("Düzelcek id")
+    self.icerik.addWidget(QLabel('Name'),0,2)
+    self.icerik.addWidget(QLabel('Number'),0,3)
+    self.duzelecekId = QLineEdit("id to be edited")
     self.icerik.addWidget(self.duzelecekId,3,0)
 
-    self.yeniAd = QLineEdit("yeni ad")
+    self.yeniAd = QLineEdit("new name")
     self.icerik.addWidget(self.yeniAd,4,0)
-    self.yeniNumara = QLineEdit("yeni numara")
+    self.yeniNumara = QLineEdit("new number")
     self.icerik.addWidget(self.yeniNumara,5,0)
 
-    self.silB = QPushButton('Düzelt')
+    self.silB = QPushButton('Edit')
     self.icerik.addWidget(self.silB,6,0)
     self.silB.clicked.connect(self.duzelt)
 
-    self.d1 = QPushButton('Ana ekrana dön')
+    self.d1 = QPushButton('Return to main page')
     self.icerik.addWidget(self.d1,7,0) # x.satır ve 1.sütuna self.d1 widgetini yerleştir.
     self.d1.clicked.connect(self.anaEkranaDon)
 
