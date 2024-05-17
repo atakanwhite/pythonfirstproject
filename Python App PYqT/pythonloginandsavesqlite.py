@@ -1,5 +1,51 @@
 from PyQt6.QtWidgets import *
 
+
+class loginPenceresi(QMainWindow):
+  def __init__(self,xx="Unnamed"):
+    super().__init__()
+    self.setWindowTitle(xx)
+
+    icerik = QVBoxLayout()
+    icerik.addWidget(QLabel('Username'))
+    self.edit1 = QLineEdit('Insert username')
+    # self.edit1.width(50)
+    icerik.addWidget(self.edit1)
+    icerik.addWidget(QLabel('Password:'))
+    self.edit2 = QLineEdit()
+    icerik.addWidget(self.edit2)
+    self.dugme1 = QPushButton('Log In')
+    icerik.addWidget(self.dugme1)
+
+    self.dugme1.clicked.connect(self.kontrolEt)
+
+    araclar = QWidget()
+    araclar.setLayout(icerik)
+    self.setCentralWidget(araclar)
+
+  def kontrolEt(self):
+    print("Button clicked!")
+    t1 = self.edit1.text()
+    t2 = self.edit2.text()
+    print("Edit 1 :", t1)
+    print("Edit 2 :", t2)
+    dosya = open("rhbgirilenpwd.txt","w")
+    dosya.write(f"{t1} {t2}")
+    dosya.close()
+
+    if t1=="Atakan" and t2 == "123456" :
+      print("Successfully logged in.")
+      self.close()
+      self.ap = anaEkran()
+      self.ap.show()
+    else:
+      print("İzin yok")
+      dlg = QMessageBox(self)
+      dlg.setWindowTitle("IMPORTANT!")
+      dlg.setText("Permission denied.")
+      dlg.exec()
+
+
 def sifreOlustur():
   kullaniciAdi = "adm"
   sifre = "123"
