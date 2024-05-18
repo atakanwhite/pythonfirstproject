@@ -33,7 +33,7 @@ class loginPenceresi(QMainWindow):
     dosya.write(f"{t1} {t2}")
     dosya.close()
 
-    if t1=="Atakan" and t2 == "123456" :
+    if t1=="adm" and t2 == "123" :
       print("Successfully logged in.")
       self.close()
       self.ap = anaEkran()
@@ -140,8 +140,8 @@ class loginPenceresi(QMainWindow):
     dosya.write(f"{t1} {t2}")
     dosya.close()
 
-    if t1=="q" and t2 == "q" :
-      print("Access denied.")
+    if t1=="adm" and t2 == "123" :
+      print("Permission granted.")
       self.close()
       self.ap = anaEkran()
       self.ap.show()
@@ -242,7 +242,7 @@ class AramaEkrani(QMainWindow):
     self.icerik = QGridLayout()
     self.silinecek = QLineEdit()
     self.icerik.addWidget(self.silinecek,0,0)
-    getirB = QPushButton('Getir')
+    getirB = QPushButton('Get')
     self.icerik.addWidget(getirB,1,0)
     self.bulunanlar = []
     getirB.clicked.connect(self.getir)
@@ -293,7 +293,7 @@ class SilmeEkrani(QMainWindow):
     self.icerik = QGridLayout()
     self.silinecek = QLineEdit()
     self.icerik.addWidget(self.silinecek,0,0)
-    getirB = QPushButton('Getir')
+    getirB = QPushButton('Get')
     self.icerik.addWidget(getirB,1,0)
     self.bulunanlar = []
     getirB.clicked.connect(self.getir)
@@ -364,7 +364,7 @@ class DuzeltmeEkrani(QMainWindow):
     self.icerik = QGridLayout()
     self.silinecek = QLineEdit()
     self.icerik.addWidget(self.silinecek,0,0)
-    getirB = QPushButton('Getir')
+    getirB = QPushButton('Get')
     self.icerik.addWidget(getirB,1,0)
 
     getirB.clicked.connect(self.getir)
@@ -426,7 +426,7 @@ class DuzeltmeEkrani(QMainWindow):
 sifreOlustur()
 uygulama = QApplication([])
 # pencere = loginPenceresi("Giriş1")
-pencere = anaEkran("Giriş1")
+pencere = loginPenceresi("Giriş1")
 pencere.show()
 # anaPencere = anaEkran("MENU")
 # anaPencere.show()
