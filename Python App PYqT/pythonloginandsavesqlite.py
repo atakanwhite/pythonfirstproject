@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import *
 
-
+#PROJE 3 VEKTOREL BILISIM TELEFON REHBERI KAYDETME SISTEMI 
 class loginPenceresi(QMainWindow):
   def __init__(self,xx="Unnamed"):
     super().__init__()
